@@ -1,0 +1,315 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color: azure;
+    box-sizing: border-box;
+}
+
+main {
+    display: grid;
+    place-items: center;
+    border: 0.1em solid azure;
+    height: 99.5vh;
+}
+
+
+.card-container {
+    display: grid;
+    place-items: center;
+    width: 80%;
+    height: 93%;
+    border: 0.1em solid rgb(20, 125, 125);
+    padding: 0.2em;
+    min-width: 410px;
+}
+
+.card {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 20% 20% 1fr 1fr;
+    border: 0.2rem solid azure;
+    border-radius: 0.2rem;
+    background-color:rgba(255, 255, 255, 0.1);
+    width: clamp(20rem, 45vw, 37rem);
+    height: clamp(30rem, 82vh, 62rem);
+    outline:rgb(62, 120, 178) solid 0.2rem;
+}
+
+.logo-container {
+    display: grid;
+    place-items: center;
+    border: 0.1em solid;
+    margin-left: 7%;
+    border-radius: 0.2em;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    width: 100%;
+    max-height: 15vh;
+    /* Background Glass effect */
+background: rgba(255, 255, 255, 0.14);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7px);
+-webkit-backdrop-filter: blur(7px);
+border: 1px solid rgba(255, 255, 255, 0.43);
+}
+
+.logo-container > img {
+    min-width: 45px;
+    width: 100%;
+    height: 100%;
+    max-height: 15vh;
+    max-width: 150px;
+}
+
+.card-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.1rem solid white;
+    color: transparent;
+   
+    width: 95%;
+    height: 57%;
+    grid-row-start: 1;
+    grid-column: 2/5;
+    
+
+    /* text stroke custom*/
+    -webkit-text-stroke: 1px #ffffff;
+	text-shadow: -1px 1px 1px #ffffff,
+				  1px 1px 2px #339eb6,
+				  1px -1px 0 #165067,
+				  -1px -1px 0 #185a6e;
+    padding: 0.3em;
+}
+
+.card-text p { 
+    font-family: Comic Sans Ms, Helvetica, sans-serif;
+    font-size: clamp(1.3rem, 2.2vw, 2rem);
+    letter-spacing: 0.2rem;
+    text-align: center;
+    border: 0.1em solid rgb(62, 120, 178);
+    padding: 0 0.7rem;
+}
+
+.questions {
+    display: none;
+    grid-column: 1/5;
+    grid-row: 2;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+/* active to display results */
+.questions-ending-section {
+  display: block;
+  align-items: center;
+  grid-column: 1/5;
+  grid-row: 2/4;
+  height: 100%;
+}
+#q-text {
+    font-family: Comic Sans MS;
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    padding: 0.3em;
+}
+/* use class to change questions at end stage */
+.show-correct {
+    display: flex;
+    grid-column: 1/5;
+    grid-row: 3;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+}
+/*back to Subjects button - to subject list */
+.reset-button {
+  display: flex;
+  grid-row: 4;
+  grid-column: 1/5;
+  align-self: flex-start;
+  justify-content: center;
+  padding: 0.4rem;
+  border-radius: 0.3rem;
+ font-size: 1.9vw;
+}
+.options-section {
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  grid-column: 1/5;
+  grid-row: 3/5;
+  display: none;  /**none by default <-- display flex **/
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 0.1rem solid;
+  width: 100%;
+  
+}
+
+.options {
+    
+    padding: 0.5rem 1rem;
+    border: 0.1em solid azure;
+    border-radius: 0.2rem;
+}
+
+.multi-choice {
+  font-family: Helvetica, sans-serif, Arial;
+  font-size: clamp(0.5rem,1.5vw,1.3rem);
+  font-size: auto;
+  width: clamp(17rem, 30vw, 30rem);
+  height: auto;
+  padding: 0.3rem;
+  background-color: rgb(25, 46, 68);
+  border-radius: 0.3rem;
+  color: azure;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+
+}
+.options button:hover {
+    background-color: rgba(137, 169, 192, 0.775);
+    box-shadow: 0 5px 15px rgba(198, 252, 252, 0.447);
+}
+
+.answer {
+  display: none;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  grid-column: 1/5;
+  grid-row: 2/4;
+  
+}
+
+.answer p {
+    font-size: clamp(1rem, 1.7vw, 1.4rem);
+    padding: 0 0.3rem 0.4rem 0.3rem;
+}
+
+/** Start Ui **/
+
+.start-landing {
+    display: flex;
+    flex-direction: column;
+    grid-row: 2/5;
+    grid-column: 1/5; 
+    border: 0.1em solid azure;
+    height: 100%;
+}
+
+.start-landing h2 {
+    text-indent: 1rem;
+    padding: 0.3rem 1rem;
+    border: 0.1rem solid azure;
+    word-break: break-word;
+    font-family: Comic Sans MS, Gill Sans;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    grid-row: 2;
+}
+.start-landing h3 {
+    text-indent: 1rem;
+    padding: 0.3rem 1rem;
+}
+
+.subject-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3em;
+    border: 0.1rem solid orchid;
+    flex: 1 1 400px;
+}
+
+/** All subject buttons **/
+.subject-btn {
+    font-family: Comic Sans MS;
+    align-self: center;
+    display: grid;
+    place-items: center;
+    height: clamp(2.7rem, 5vw, 3.5rem);
+    width: clamp(17rem, 30vw, 30rem);
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.subject-btn i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+    width: 103%;
+    height: 99%;
+}
+
+button:hover {
+    box-shadow: 0 5px 15px rgba(198, 252, 252, 0.447);
+}
+
+/** All subject-buttons text **/
+.btn-text {
+  font-family: Comic Sans MS;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+}
+
+/** Individual buttons **/
+#air {
+    background-color: lightblue;  /**lightblue- rgb 173, 216, 230**/
+}
+#air:hover, .fa-lungs:hover {
+    border-radius: 0.2rem;
+    background-color: rgb(196, 232, 244);
+}
+#cardio {
+    background-color: rgb(222, 95, 95);
+}
+#cardio:hover, .fa-heart-pulse:hover {
+    border-radius: 0.2rem;
+    background-color: rgb(255, 149, 149);
+}
+#med {
+  background-color: lightgreen;
+}
+#med:hover, .fa-bed-pulse:hover {
+    border-radius: 0.2rem;
+    background-color: rgb(159, 251, 159);
+}
+#obs {
+   background-color: rgb(232, 184, 233);
+}
+#obs:hover, .fa-user-doctor:hover {
+    border-radius: 0.2rem;
+    background-color: rgb(254, 221, 255);
+}
+#trauma {
+    background-color: rgb(241, 154, 82);
+}
+#trauma:hover, .fa-truck-medical:hover {
+    border-radius: 0.2rem;
+    background-color: rgb(250, 194, 126);
+}
+#all {
+    background-color: aliceblue;
+}
+
+/** styling for next btn **/
+.next-btn {
+    
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    width: 10vw;
+    border-radius: 0.3rem;
+
+}
+
