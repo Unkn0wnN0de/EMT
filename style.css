@@ -131,6 +131,8 @@ border: 1px solid rgba(255, 255, 255, 0.43);
     justify-content: center;
     font-size: clamp(1.1rem, 2vw, 1.4rem);
 }
+
+
 /*back to Subjects button - to subject list */
 .reset-button {
   display: flex;
@@ -142,6 +144,10 @@ border: 1px solid rgba(255, 255, 255, 0.43);
   border-radius: 0.3rem;
  font-size: 1.9vw;
 }
+.reset-button:hover {
+    text-decoration: underline;
+}
+
 .options-section {
   font-size: clamp(1rem, 1.8vw, 1.5rem);
   grid-column: 1/5;
