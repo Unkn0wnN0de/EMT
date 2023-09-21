@@ -3,6 +3,7 @@ window.addEventListener("load", () => {
   console.log(`Loaded Successfully`);
   getRgb();
 });
+
 //^^ individual subject buttons ^^//
 const airwayBtn = document.querySelector("#air");
 const cardioBtn = document.querySelector("#cardio");
@@ -12,7 +13,6 @@ const traumaBtn = document.querySelector("#trauma");
 const allBtn = document.querySelector("#all");
 //^^ all above subject buttons ^^//
 const buttons = document.querySelectorAll("button");
-const btnTexts = document.querySelectorAll(".btn-text");
 const icons = document.querySelectorAll(".fa-solid");
 const subjectBtns = document.querySelectorAll(".subject-btn");
 const allChoices = document.querySelectorAll(".multi-choice");
@@ -37,57 +37,7 @@ nextBtn.addEventListener("click", (e) => {
   setQA(subject);
  });
 
-//** store original rgb colors **//
-let rgb = [];
-let regex = /\d\d?\d/g;
-//+ rgb - functions +//
-function getRgb() {
-  for (let btnColor of buttons) {
-    let cssStyle = window.getComputedStyle(btnColor);
-    rgb.push(cssStyle.backgroundColor);
-  }
-};
-function rgbDarken(e) {
-  for (let btn of buttons) {
-    let css = window.getComputedStyle(btn);
-    if (btn != e.target.parentElement.parentElement) {
-      /* darkened rgb change-all other buttons */
-      const rgbStr = css.backgroundColor;
-      let rgbArr = rgbStr.match(regex);
-      let r = parseInt(rgbArr[0]) - 30;
-      let g = parseInt(rgbArr[1]) - 30;
-      let b = parseInt(rgbArr[2]) - 29;
 
-      btn.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    }
-  };
-};
-function rgbRestore(e) {
-  for (let i = 0; i < buttons.length; i++) {
-    /*console.log(buttons[i], typeof buttons[i]);
-    console.log(rgb);*/
-    buttons[i].style.backgroundColor = `${rgb[i]}`;
-  }
-};
-
-//+ Event listeners for background change +//
-for (let btnTxt of btnTexts) {
-  //console.log(btnTxt);
-
-  btnTxt.addEventListener("mouseover", (e) => {
-    /*console.log(e.type, e.target);
-    console.log(`${e.target.id} was hovered`);
-    console.log(e.target.parentElement,`is 1st parentElement`);
-    console.log(e.target.parentElement.parentElement,`is grandParent`);*/
-    rgbDarken(e);
-
-  });
-  //^^ need a backgrndcolor reset after on mouseout ^/
-  btnTxt.addEventListener("mouseout", (e) => {
-    //console.log(e.type, e.target);
-    rgbRestore(e);
-  })
-};
 
 //++ Questions / Answers ++//
 const cardiology = [
@@ -405,7 +355,6 @@ const trauma = [
 
 
 //++ one event listener for all subject buttons ++//
-
 for(let key of subjectBtns) {
   //console.log(key);
   key.addEventListener("click", (e) => {
